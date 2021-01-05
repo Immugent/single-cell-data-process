@@ -1,6 +1,6 @@
 ##安装monocle
 rm(list=ls())
-##载入monocle包
+##载入monocle�?
 library(Seurat)
 library(dplyr)
 library(Matrix)
@@ -9,10 +9,10 @@ library(monocle)
 
 ##读入pbmc数据
 setwd("")
-load("data\\0.52sub_Tcell.Robj")
+load("data\\sub_Tcell.Robj")
 table(sub_Tcell$origin)
 table(sub_Tcell@meta.data$RNA_snn_res.0.52)
-##取需要做轨迹的2个亚群
+##取需要做轨迹�?2个亚�?
 table(Idents(sub_Tcell))
 sub_Tcell <- subset(sub_Tcell, idents=c("Cytotoxic_CD8 T", "Activated_CD8 T", "Exhausted_CD8 T"))
 sub_Tcell
@@ -65,7 +65,7 @@ plot_cell_trajectory(cds, color_by = "origin",show_branch_points=F)
 plot_cell_trajectory(cds, color_by = "celltype")
 plot_cell_trajectory(cds, color_by = "origin",show_branch_points=F)
 
-#轨迹图分面显示
+#轨迹图分面显�?
 p1 <- plot_cell_trajectory(cds, color_by = "orig.ident",show_branch_points=F) + facet_wrap(~orig.ident, nrow = 1)
 p2 <- plot_cell_trajectory(cds, color_by = "origin",show_branch_points=F) + facet_wrap(~origin, nrow = 1)
 plotc <- p1/p2
