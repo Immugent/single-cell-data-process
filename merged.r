@@ -160,11 +160,10 @@ CombinePlots(plots = list(plot1, plot2))
 
 
 cluster1.markers <- FindMarkers(merged, ident.1 = 1, min.pct = 0.25)
-head(cluster1.markers, n = 5)#耗时
-
+head(cluster1.markers, n = 5)
 
 merged.markers <- FindAllMarkers(merged, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
-merged.markers %>% group_by(cluster) %>% top_n(n = 2, wt = avg_logFC)#耗时
+merged.markers %>% group_by(cluster) %>% top_n(n = 2, wt = avg_logFC)
 
 
 write.csv(merged.markers,file="marker.csv")
@@ -196,8 +195,6 @@ merged
 table(merged$celltype)
 VlnPlot(merged, features = c("Ighm", "Igkc","Cd44", "Tgfb1","Ly6a", "Jund", "Il2rg","Cd19", "Cd79a","Cd79b","Cd37","Cd74"),pt.size = 0,group.by = "celltype",ncol = 4)
 DotPlot(merged, features = c( "Wfdc21", "Cd24a","Fcer1g","G0s2",  "Cd14","Clec4d", "Ccl4", "Ccl3","Il1rn","Bri3"), cols = c("blue", "red"),group.by = "celltype")
-
-
 
 DotPlot(merged, features = c("cd74", "Itgax", "Cd3e", "Cd4", "Cd8a", "Ctla4","Pdcd1", "Foxp3", "Nkg7", "Itgam", "Cd3d"), cols = c("blue", "red"))
 #CD8T STAT
@@ -260,7 +257,7 @@ VlnPlot(sub_Tcell, features = c("Ctla4","Pdcd1"),split.by = "RNA_snn_res.0.5",pt
 VlnPlot(sub_Tcell, features = c("Cxcr6","Tcf7"),split.by = "RNA_snn_res.0.5",pt.size = 0)
 VlnPlot(sub_Tcell, features = c("Prf1","Gzmb"),split.by = "RNA_snn_res.0.5",pt.size = 0)
 
-sub_Tcell@meta.data$sample_type <- paste(sub_Tcell@meta.data$orig.ident, sub_Tcell@meta.data$RNA_snn_res.0.52, sep = "_")#增加了一列，可以更多方向cluster的比较
+sub_Tcell@meta.data$sample_type <- paste(sub_Tcell@meta.data$orig.ident, sub_Tcell@meta.data$RNA_snn_res.0.52, sep = "_")
 sub_Tcell@meta.data$seurat_clusters
 table(sub_Tcell@meta.data$sample_type)
 
