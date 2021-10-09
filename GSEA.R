@@ -1,9 +1,7 @@
-#20201118    本地GSEA文件准备
 
 rm(list=ls())
 setwd('D:\\mouse_GSEA\\Cytotoxic_Tcell')
-#准备gsea输入文件
-##R语言准备gsea输入文件
+
 library(Seurat)
 library(tidyverse)
 dir.create("GSEA")   
