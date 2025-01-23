@@ -1,5 +1,5 @@
 # single-cell-data-process
-This code is used for analyzing and annotating single-cell sequencing data of immune cells derived from the mouse B16 tumor model.
+This code is used for annotating and analyzing single-cell sequencing data of immune cells derived from the mouse B16 tumor model.
 ![image](https://github.com/user-attachments/assets/dd5d9798-e308-4468-923f-2726536c00b2)
 
 
